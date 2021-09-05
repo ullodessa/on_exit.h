@@ -1,3 +1,12 @@
+/**/
+template <class T, class=void>
+struct has_method : std::false_type {};
+
+template <class T>
+struct has_method<T, std::void_t<decltype(std::declval<T&>()->bap)>> : std::true_type {};
+/**/
+
+
 #pragma once
 
 enum class SomeClass {};
